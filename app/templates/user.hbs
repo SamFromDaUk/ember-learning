@@ -1,0 +1,12 @@
+This is the users list, it is awesome.
+
+<ul>
+    {{#each user in model}}
+        <li>{{#link-to 'user_detail' user}}{{user.name}}{{/link-to}}</li>
+        {{else}}
+        <li>No users!</li>
+    {{/each}}
+</ul>
+
+{{outlet}}
+

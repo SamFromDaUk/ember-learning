@@ -1,0 +1,44 @@
+
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>DOB</td>
+        </tr>
+    </thead>
+    <tbody>
+        {{#if isEditing}}
+        <tr>
+            <td>
+                {{model.id}}
+            </td>
+            <td>
+                {{input type="text" value=model.name size="50"}}
+            </td>
+            <td>
+                {{input type="text" value=model.dob size="50"}}
+            </td>
+        </tr>
+        {{else}}
+            <tr>
+                <td>{{model.id}}</td>
+                <td>{{model.name}}</td>
+                <td>{{formatDate model.dob}}</td>
+            </tr>
+        {{/if}}
+    </tbody>
+</table>
+
+<div class="actions pull-right">
+    {{#if isEditing}}
+        <button {{action 'cancelEdit' on="click"}} class="btn btn-default">Cancel</button>
+        <button {{action 'toggleEdit' false on="click"}} class="btn btn-primary">Save</button>
+    {{else}}
+        <button {{action 'toggleEdit' true on="click"}} class="btn btn-primary">Edit</button>
+    {{/if}}
+</div>
+
+{{outlet}}
+
