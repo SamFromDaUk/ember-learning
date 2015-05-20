@@ -14,10 +14,4 @@ App = Ember.Application.extend({
 
 loadInitializers(App, config.modulePrefix);
 
-Ember.Handlebars.registerBoundHelper('formatDate', function(date) {
-  date = new Date(date*1000);
-
-  return date.getDay() + '/' + date.getMonth() + '/' + date.getYear();
-});
-
 export default App;
